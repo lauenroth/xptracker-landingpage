@@ -13,3 +13,39 @@ new Rellax('.keyvisual', {
   vertical: true,
   horizontal: false
 });
+
+const smartphone = document.querySelector('.smartphone img');
+const scroller = scrollama();
+
+const handleStepEnter = function(step) {
+  smartphone.src = (`images/screen${step.index}.png`);
+};
+
+scroller
+  .setup({
+    step: '.step',
+    container: '.scroll',
+    graphic: '.smartphone',
+  })
+  .onStepEnter(handleStepEnter)
+  ;
+
+
+function resizeHeaderOnScroll() {
+  const distanceY = window.pageYOffset || document.documentElement.scrollTop,
+    shrinkOn = 200,
+    headerEl = document.querySelector('header');
+  
+  if (distanceY > shrinkOn) {
+    headerEl.classList.add("smaller");
+  } else {
+    headerEl.classList.remove("smaller");
+  }
+}
+
+window.addEventListener('scroll', resizeHeaderOnScroll);
+
+function goto(element) {
+  console.log(element);
+  document.getElementById('features').scrollIntoView();
+}
