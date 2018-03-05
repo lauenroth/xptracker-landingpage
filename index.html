@@ -32,17 +32,21 @@
   </section>
   <div class="scroll">
     <h2>Features</h2>
-    <div class="smartphone"><div></div></div>
+    <div class="smartphone">
+      <img src="images/screen0.png">
+    </div>
     <div class="scroll-text">
-      <section class="step" data-step="a">
+      <section class="step">
         <h2 id="features">Spendings history</h2>
         <p>Check your expenses per month with a doughnut diagram on top displaying how they are split into categories.</p>
       </section>
-      <section class="step" data-step="b">
+      <section class="step">
         <h2>Add new expenses as easy as 1-2-3</h2>
+        <p>Enter an amount, choose a category and an optional description - and you're done.</p>
       </section>
-      <section class="step" data-step="c">
+      <section class="step">
         <h2>Categorize your spendings</h2>
+        <p>Choose one of the numerous categories to group your expenses.</p>
       </section>
     </div>
   </div>
@@ -51,24 +55,32 @@
     <h2>Coming soon</h2>
     <ul>
       <li>
-        <i class="im im-line-chart-up"></i>
-        <h4>Detailed statistics</h4>
-        <p>Check your spendings in every possible detail.</p>
+        <div>
+          <i class="im im-line-chart-up"></i>
+          <h4>Detailed statistics</h4>
+          <p>Check your spendings in every possible detail.</p>
+        </div>
       </li>
       <li>
-        <i class="im im-bank"></i>
-        <h4>Import from your bank</h4>
-        <p>Add spendings to the app that you made via your bank account.</p>
+        <div>
+          <i class="im im-bank"></i>
+          <h4>Import from your bank</h4>
+          <p>Add spendings to the app that you made via your bank account.</p>
+        </div>
       </li>
       <li>
-        <i class="im im-export"></i>
-        <h4>Export your data</h4>
-        <p>Create a CSV file and use your data wherever you want.</p>
+        <div>
+          <i class="im im-export"></i>
+          <h4>Export your data</h4>
+          <p>Create a CSV file and use your data wherever you want.</p>
+        </div>
       </li>
       <li>
-        <i class="im im-globe"></i>
-        <h4>Localization</h4>
-        <p>Enjoy the app in your language with the corresponding date format.</p>
+        <div>
+          <i class="im im-globe"></i>
+          <h4>Localization</h4>
+          <p>Enjoy the app in your language with the corresponding date format.</p>
+        </div>
       </li>
     </ul>
   </section>
@@ -79,13 +91,11 @@
 
 <script>
 
-const smartphone = document.querySelector('.smartphone');
+const smartphone = document.querySelector('.smartphone img');
 const scroller = scrollama();
 
 const handleStepEnter = function(step) {
-  const currentIndex = (step.direction === 'down') ? step.index - 1 : step.index + 1;
-  if (currentIndex >= 0) smartphone.classList.remove(`screen-${currentIndex}`);
-  smartphone.classList.add(`screen-${step.index}`);
+  smartphone.src = (`images/screen${step.index}.png`);
 };
 
 scroller
@@ -95,9 +105,6 @@ scroller
     graphic: '.smartphone',
   })
   .onStepEnter(handleStepEnter)
-  // .onStepExit(handleStepExit)
-  // .onContainerEnter(handleContainerEnter)
-  // .onContainerExit(handleContainerExit)
   ;
 
 
