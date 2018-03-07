@@ -8,19 +8,21 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
   <link href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css" rel="stylesheet">
   <link href="xptracker-new.css" rel="stylesheet">
-  <script src="https://unpkg.com/intersection-observer"></script>
-  <script src="https://unpkg.com/scrollama"></script>
 </head>
 <body>
+  <input type="checkbox" id="top">
   <header>
     <div>
       <h1>
         <img src="images/xptracker.png" alt="XP Tracker Logo" height="50">
         E<span>xp</span>enses<span>Tracker</span>
       </h1>
-      <a href="#features" onclick="goto(this)">Features</a>
-      <a href="#contact">Contact</a>
-      <a href="https://app.xp-tracker.com/#/login">Sign in</a>
+      <label for="top"><span></span></label>
+      <ul>
+        <li><a href="#features" onclick="goto(this)">Features</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://app.xp-tracker.com/#/login">Sign in</a></li>
+      </ul>
     </div>
   </header>
   <section class="keyvisual">
@@ -36,15 +38,15 @@
       <img src="images/screen0.png">
     </div>
     <div class="scroll-text">
-      <section class="step">
+      <section class="step" data-step="a">
         <h2 id="features">Spendings history</h2>
         <p>Check your expenses per month with a doughnut diagram on top displaying how they are split into categories.</p>
       </section>
-      <section class="step">
+      <section class="step" data-step="b">
         <h2>Add new expenses as easy as 1-2-3</h2>
         <p>Enter an amount, choose a category and an optional description - and you're done.</p>
       </section>
-      <section class="step">
+      <section class="step" data-step="c">
         <h2>Categorize your spendings</h2>
         <p>Choose one of the numerous categories to group your expenses.</p>
       </section>
@@ -88,6 +90,6 @@
   <footer>
     © 2018 by <a href="https://joerg.lauenroth.org">Jörg Lauenroth</a>
   </footer>
-  <script src="xptracker.js"></script>
+  <script async src="xptracker.js"></script>
 </body>
 </html>
